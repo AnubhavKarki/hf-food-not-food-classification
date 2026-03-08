@@ -246,3 +246,32 @@ A typical deployment ready version of the project includes:
 * saved model artifacts
 * project documentation
 
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/AnubhavKarki/hf-food-not-food-classification.git
+cd hf-food-not-food-classification
+```
+
+Install dependencies:
+
+```bash
+pip install -U transformers datasets evaluate accelerate gradio torch
+```
+
+## Usage
+
+### Run training
+
+Open the notebook and run the end to end training pipeline.
+
+### Run the Gradio app locally
+
+```bash
+python app.py
+```
+
+Then open the local Gradio URL shown in the terminal.
+
