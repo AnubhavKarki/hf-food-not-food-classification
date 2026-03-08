@@ -73,3 +73,43 @@ The base model used for fine tuning is:
 
 `distilbert/distilbert-base-uncased`
 
+### Why DistilBERT
+
+DistilBERT provides a strong balance between performance and efficiency. It is smaller and faster than BERT while still retaining strong language understanding capabilities, making it a practical choice for text classification tasks.
+
+## Project Pipeline
+
+### 1. Data Loading
+
+The dataset is loaded directly from Hugging Face using `datasets.load_dataset()`.
+
+### 2. Label Mapping
+
+String labels are mapped into numeric form for training.
+
+Example mapping structure:
+
+* `food` → `1`
+* `not_food` → `0`
+
+The exact mapping is created programmatically from the dataset.
+
+### 3. Train Test Split
+
+The dataset is shuffled and split into:
+
+* 80% training data
+* 20% test data
+
+A fixed random seed is used for reproducibility.
+
+### 4. Tokenization
+
+Text inputs are tokenized using `AutoTokenizer` from the DistilBERT checkpoint.
+
+Tokenization includes:
+
+* padding
+* truncation
+* batching for faster preprocessing
+
