@@ -113,3 +113,105 @@ Tokenization includes:
 * truncation
 * batching for faster preprocessing
 
+### 5. Model Fine Tuning
+
+The project uses `AutoModelForSequenceClassification` with two output labels.
+
+Training is handled through Hugging Face `Trainer` and `TrainingArguments`.
+
+### 6. Evaluation
+
+Accuracy is used as the core evaluation metric. Predictions are post processed with `argmax` before metric computation.
+
+### 7. Saving and Publishing
+
+After training, the model is:
+
+* saved locally
+* pushed to Hugging Face Hub
+
+### 8. Inference Demo
+
+A Gradio interface is built to let users enter custom text and receive predicted class probabilities.
+
+### 9. Deployment
+
+The Gradio app is prepared for deployment on Hugging Face Spaces using:
+
+* `app.py`
+* `requirements.txt`
+* `README.md`
+
+## Training Configuration
+
+The training setup used in the notebook includes:
+
+* model: `distilbert/distilbert-base-uncased`
+* task: binary text classification
+* epochs: `10`
+* learning rate: `1e-4`
+* train batch size: `32`
+* eval batch size: `32`
+* evaluation strategy: `epoch`
+* save strategy: `epoch`
+* best model loaded at end: `True`
+* save total limit: `3`
+* seed: `42`
+
+## Evaluation Metric
+
+The primary evaluation metric is:
+
+* **Accuracy**
+
+The evaluation function converts model logits into predicted class IDs before comparing them against the reference labels.
+
+## Inference
+
+The project supports inference in two ways:
+
+### Hugging Face Pipeline
+
+A text classification pipeline is created using the fine tuned model for easy prediction on custom text.
+
+### Raw PyTorch and Transformers
+
+The tokenizer and model can also be loaded directly for lower level inference using:
+
+* `AutoTokenizer`
+* `AutoModelForSequenceClassification`
+
+## Gradio Demo
+
+A Gradio app is included to make the model interactive and easy to test.
+
+### Demo features
+
+* text input
+* label probability output
+* simple examples
+* clean interface for quick experimentation
+
+Example inputs:
+
+* `My code is going into production`
+* `I have a recipe to cook delicious tiramisu`
+
+## Hugging Face Integration
+
+This project uses multiple Hugging Face tools end to end:
+
+### Hugging Face Datasets
+
+Used to load and work with the `food / not food` caption dataset.
+
+### Hugging Face Transformers
+
+Used for:
+
+* tokenizer loading
+* model loading
+* model fine tuning
+* training with `Trainer`
+* inference with `pipeline`
+
