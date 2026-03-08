@@ -215,3 +215,34 @@ Used for:
 * training with `Trainer`
 * inference with `pipeline`
 
+### Hugging Face Hub
+
+Used to publish the trained model for reuse and sharing.
+
+### Gradio
+
+Used to build a lightweight web interface for predictions.
+
+### Hugging Face Spaces
+
+Used to deploy the Gradio app publicly as an interactive demo.
+
+## Repository Structure
+
+```text
+hf-food-not-food-classification/
+├── README.md
+├── notebook.ipynb
+├── app.py
+├── requirements.txt
+└── models/
+```
+
+A typical deployment ready version of the project includes:
+
+* the training notebook
+* the application script for Gradio
+* dependency file
+* saved model artifacts
+* project documentation
+
