@@ -275,3 +275,58 @@ python app.py
 
 Then open the local Gradio URL shown in the terminal.
 
+## Example Prediction Flow
+
+Input:
+
+```text
+A delicious photo of a plate of scrambled eggs, toast, and bacon.
+```
+
+Output:
+
+```text
+food
+```
+
+Another input:
+
+```text
+Homage to Catalonia is written by George Orwell.
+```
+
+Output:
+
+```text
+not_food
+```
+
+## Key Learning Outcomes Demonstrated in This Project
+
+* building an NLP classification pipeline from scratch
+* working with Hugging Face datasets
+* tokenizing text for Transformer models
+* fine tuning DistilBERT for binary classification
+* evaluating model performance
+* pushing models to Hugging Face Hub
+* building an end to end Gradio demo
+* preparing an ML app for Hugging Face Spaces deployment
+
+## Notes
+
+* The project is based on text inputs, not images
+* the classifier learns from image captions represented as text
+* training and evaluation are performed using the Hugging Face Trainer API
+* inference supports both local model usage and Hub hosted model usage
+
+## Acknowledgment of Scope
+
+This repository focuses on the complete end to end implementation of a text classification workflow using the Hugging Face ecosystem, including training, evaluation, inference, and deployment.
+
+## License
+
+This project uses the Apache 2.0 license.
+
+## Author
+
+**Anubhav Karki**
