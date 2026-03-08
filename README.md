@@ -21,3 +21,55 @@ The pipeline includes:
 * building an interactive Gradio app
 * preparing the app for deployment on Hugging Face Spaces
 
+## Demo of the project in Gradio
+
+![Demo of the project in Gradio](demo.png)
+
+## Problem Statement
+
+Given a text input such as a caption, phrase, or sentence, the goal is to classify it into one of two categories:
+
+* `food`
+* `not_food`
+
+Examples:
+
+* `"Salmon and rice is a healthy food combination."` → `food`
+* `"Homage to Catalonia is written by George Orwell."` → `not_food`
+
+## Tech Stack
+
+* Python
+* PyTorch
+* Hugging Face Transformers
+* Hugging Face Datasets
+* Hugging Face Evaluate
+* Hugging Face Hub
+* Gradio
+* Hugging Face Spaces
+* NumPy
+* Pandas
+* Matplotlib
+
+## Dataset
+
+The project uses the following dataset from Hugging Face:
+
+`mrdbourke/learn_hf_food_not_food_image_captions`
+
+This dataset contains text captions labeled as either food or not food.
+
+### Dataset workflow
+
+* load dataset from Hugging Face
+* extract unique labels
+* create `id2label` and `label2id` mappings
+* convert labels into model ready numeric targets
+* split into training and test sets using an 80/20 split
+
+## Model
+
+The base model used for fine tuning is:
+
+`distilbert/distilbert-base-uncased`
+
